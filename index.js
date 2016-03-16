@@ -18,7 +18,7 @@ function then(db) {
     }
   }
   return {
-    open: Promise.denodeify(db.open.bind(db)),
+    open: db.open && Promise.denodeify(db.open.bind(db)),
     close: Promise.denodeify(db.close.bind(db)),
     put: Promise.denodeify(db.put.bind(db)),
     get: Promise.denodeify(db.get.bind(db)),
